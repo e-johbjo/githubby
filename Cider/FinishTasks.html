@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <main class="MainFrame">
+
+        <div>
+            <a class = "Headline">Medlemmer</a>
+        </div>
+            <select class = "DropDownListG" placeholder="Velg oppgave" name="oppgaver" id="oppgaver">
+                <option value = "Ta ut av oppvaskmaskinen">Ta ut av oppvaskmaskinen</option>
+                <option value = "Tur med hunden">Tur med hunden</option>
+                <option value ="Gjøre programmeringsoppgaver">Gjøre programmeringsoppgaver</option>
+                <option value="Støvsuge Stuen">Støvsuge stuen</option>
+            </select>
+            <br>
+            <br>
+            <br>
+            <br>
+            <a href = "TaskCreation.html">
+                <div class="AddTaskButton">Legg til oppgave</div>
+            </a>
+        
+            <button class="FinishButton" id = FButton>Fullfør Oppgave</button>
+
+        <div class = "HotBar">
+        
+            <a href="family.html">
+                <img src="../Images/MemberIcon.png" class = "HotBarButton">
+            </a>
+    
+            <a href ="FinishTasks.html">
+                <img src="../Images/PlusIconSelect.png" class = "HotBarButton">
+            </a>
+    
+            <a href="Tasks.html">
+                <img src = "../Images/ListIcon.png" class = HotBarButton>
+            </a>
+    
+        </div>
+    </main>
+
+
+
+    <script>
+        sessionStorage.tasks = "";
+        let options = document.getElementById("oppgaver");
+        let children = options.children;
+
+        for (let i = 0; i < children.length; i++) {
+           sessionStorage.tasks += children[i].innerText + "\n";
+        }
+
+        sessionStorage.Ftasks=""
+        let Fbutton = document.getElementById("FButton")
+        Fbutton.addEventListener("click", function(){
+            let TaskComplete = options.value
+            sessionStorage.Ftasks+=TaskComplete+"\n"
+        })
+
+    </script>
+</body>

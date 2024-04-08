@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <main  class = "MainFrame">
+        <h1 class = "Headline">Oppgaver</h1>
+        <br>
+        <h2>Uferdige Oppgaver</h2>
+        <ul class = "Tasks" id="tasks">
+            
+        </ul>
+
+        <ul class = "Tasks" id = FinishedTasks>
+
+        </ul>
+        <br>
+
+        <h2>Ferdige Oppgaver</h2>
+        
+        <div class = "HotBar">
+
+            <a href="family.html">
+                <img src="../Images/MemberIcon.png" class = "HotBarButton">
+            </a>
+            <a href ="FinishTasks.html">
+                <img src="../Images/PlusIcon.png" class = "HotBarButton">
+            </a>
+
+            <a href="Tasks.html">
+                <img src = "../Images/ListIconSelect.png" class = "HotBarButton">
+            </a>
+
+        </div>
+    </main>
+
+
+    <script>
+        let tasks = sessionStorage.tasks;
+        tasks = tasks.split("\n");
+        tasks.splice(tasks.length - 1, 1);
+
+        let list = document.getElementById("tasks")
+
+        for (let i = 0; i < tasks.length; i++) {
+            let task = tasks[i];
+            
+            let Element = document.createElement("li")
+            Element.innerHTML = task
+            list.appendChild(Element)
+        }
+
+        let Ftasks = sessionStorage.Ftasks
+        Ftasks = Ftasks.split("\n");
+        Ftasks.splice(Ftasks.length - 1, 1);
+
+        let Flist = document.getElementById("FinishedTasks")
+
+        for (let i = 0; i < Ftasks.length; i++) {
+            let taskf = Ftasks[i];
+            
+            let ElementF = document.createElement("li")
+            ElementF.innerHTML = taskf
+            list.appendChild(ElementF)
+        }
+
+    </script>
+</body>
